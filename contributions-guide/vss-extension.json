@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "samples-contributions-guide",
-    "version": "1.23",
+    "version": "1.28",
     "name": "Contributions Guide",
     "description": "Building an extension for Visual Studio Team Services? See the places where you can extend and enhance the user's web experience with an extension ---- right from within the web experience.",
     "publisher": "ms-samples",
@@ -51,6 +51,10 @@
             "addressable": true
         }, 
         {
+            "path": "drawio.html",
+            "addressable": true
+        }, 
+        {
             "path": "context.html",
             "addressable": true
         },       
@@ -80,6 +84,16 @@
                 "keyword": "mermaid",
                 "previewSrc": "",
                 "uri": "MermaidExt.html"
+            }
+        },
+        {
+            "id": "markdown-syntax-drawio",
+            "type": "ms.vss-tfs-web.markdown-extension",
+            "targets": ["ms.vss-tfs-web.markdown-extension-syntax"],
+            "properties": {
+                "keyword": "drawio",
+                "previewSrc": "",
+                "uri": "drawio.html"
             }
         },
         {
