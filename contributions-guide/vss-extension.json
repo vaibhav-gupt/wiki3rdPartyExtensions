@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
     "id": "samples-contributions-guide",
-    "version": "0.1.53",
+    "version": "1.23",
     "name": "Contributions Guide",
     "description": "Building an extension for Visual Studio Team Services? See the places where you can extend and enhance the user's web experience with an extension ---- right from within the web experience.",
     "publisher": "ms-samples",
@@ -47,6 +47,10 @@
             "addressable": true
         },
         {
+            "path": "MermaidExt.html",
+            "addressable": true
+        }, 
+        {
             "path": "context.html",
             "addressable": true
         },       
@@ -61,9 +65,23 @@
         {
             "path": "node_modules/vss-web-extension-sdk/lib",
             "addressable": true
-        }    
+        }    ,     
+        {
+            "path": "node_modules/mermaid/dist",
+            "addressable": true
+        } 
     ],
     "contributions": [
+        {
+            "id": "markdown-syntax-mermaid",
+            "type": "ms.vss-tfs-web.markdown-extension",
+            "targets": ["ms.vss-tfs-web.markdown-extension-syntax"],
+            "properties": {
+                "keyword": "mermaid",
+                "previewSrc": "",
+                "uri": "MermaidExt.html"
+            }
+        },
         {
             "id": "showProperties",
             "type": "ms.vss-web.action",

@@ -8,6 +8,8 @@
   },
   "author": "Microsoft",
   "dependencies": {
+    "grunt": "^1.0.3",
+    "mermaid": "^8.0.0-rc.8",
     "vss-web-extension-sdk": "^2.109.0"
   }
 }
