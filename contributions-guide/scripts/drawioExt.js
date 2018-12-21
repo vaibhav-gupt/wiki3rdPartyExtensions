@@ -40,6 +40,10 @@ VSS.init({explicitNotifyLoaded: true, usePlatformScripts: true, usePlatformStyle
            {
              // Updates the data URI of the image
              source.setAttribute('src', msg.data);
+             VSS.getService("ms.vss-wiki-web.wiki-extension-data-service").then(function(obj) {
+                obj.setData({elementId: VSS.getConfiguration(), graphData: msg.data});
+                console.log("data set message has been sent");
+             });
            }
                         
            // Received if the user clicks exit or after export
@@ -55,6 +59,9 @@ VSS.init({explicitNotifyLoaded: true, usePlatformScripts: true, usePlatformStyle
        };
 
        window.addEventListener('message', receive);
+       VSS.getService("ms.vss-wiki-web.wiki-extension-data-service").then(function(obj) {
+            obj.setFullScreen({elementId: VSS.getConfiguration()});
+        });
        // Opens the editor
        iframe.setAttribute('src', url);
        document.body.appendChild(iframe);
