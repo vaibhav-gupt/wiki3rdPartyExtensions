@@ -49,6 +49,15 @@ VSS.init({explicitNotifyLoaded: true, usePlatformScripts: true, usePlatformStyle
            // Received if the user clicks exit or after export
            if (msg.event == 'exit' || msg.event == 'export')
            {
+            VSS.getService("ms.vss-wiki-web.wiki-extension-data-service").then(function(obj) {
+               obj.exitFullScreen({elementId: VSS.getConfiguration()}).then(function(completed){
+                 if(completed) {
+                   var imageElement = document.getElementsByClassName("drawio")[0];
+                   VSS.resize(imageElement.offsetWidth + 20, imageElement.offsetHeight + 20);
+                 }
+               });
+               console.log("exitFullScreen message has been sent");
+            });
              // Closes the editor
              window.removeEventListener('message', receive);
              source.drawIoWindow.close();
@@ -59,13 +68,13 @@ VSS.init({explicitNotifyLoaded: true, usePlatformScripts: true, usePlatformStyle
        };
 
        window.addEventListener('message', receive);
-       VSS.getService("ms.vss-wiki-web.wiki-extension-data-service").then(function(obj) {
-            obj.setFullScreen({elementId: VSS.getConfiguration()});
-        });
        // Opens the editor
        iframe.setAttribute('src', url);
        document.body.appendChild(iframe);
        source.drawIoWindow = iframe.contentWindow;
+       VSS.getService("ms.vss-wiki-web.wiki-extension-data-service").then(function(obj) {
+            obj.setFullScreen({elementId: VSS.getConfiguration()});
+        });
      }
      else
      {

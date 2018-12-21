@@ -1,9 +1,5 @@
 VSS.init({explicitNotifyLoaded: true, usePlatformScripts: true, usePlatformStyles: true, extensionReusedCallback: registerContribution });
 
-mermaid.initialize({
-    startOnLoad:false
-});
-
 // We need to register the new contribution if this extension host is reused
 function registerContribution(contribution) {
         // Register the fully-qualified contribution id here.
@@ -15,11 +11,9 @@ function registerContribution(contribution) {
 
 function sendContent(content) {
     var insertSvg = function(svgCode, bindFunctions){
-        element;
-        document.getElementById("merm1").innerHTML = svgCode;
+        document.getElementById("mermaid-div").innerHTML = svgCode;
     };
 
-    var graphDefinition = 'graph TB\na-->b';
     mermaid.render('graphDiv', content, insertSvg);
     VSS.resize();
 }

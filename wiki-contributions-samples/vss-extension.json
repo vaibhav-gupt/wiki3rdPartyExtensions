@@ -1,0 +1,80 @@
+{
+    "manifestVersion": 1,
+    "id": "wiki-contribution-samples",
+    "version": "1.39",
+    "name": "Wiki Sample Contributions",
+    "description": "Building an extension for Visual Studio Team Services? See the places where you can extend and enhance the user's web experience with an extension ---- right from within the web experience.",
+    "publisher": "ms-samples",
+    "public": true,
+    "categories": [
+        "Code"
+    ],
+    "icons": {
+        "default": "images/fabrikam-logo.png"
+    },
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],
+    "demands": [
+        "api-version/2.0"
+    ],
+    "content": {
+        "details": {
+            "path": "details.md"
+        }
+    }, 
+    "branding": {
+        "color": "rgb(190, 39, 3)",
+        "theme": "dark"
+    },       
+    "files": [
+        {
+            "path": "scripts",
+            "addressable": true
+        },
+        {
+            "path": "images",
+            "addressable": true
+        },
+        {
+            "path": "Mermaid.html",
+            "addressable": true
+        }, 
+        {
+            "path": "drawio.html",
+            "addressable": true
+        }, 
+        {
+            "path": "node_modules/vss-web-extension-sdk/lib",
+            "addressable": true
+        }    ,     
+        {
+            "path": "node_modules/mermaid/dist",
+            "addressable": true
+        } 
+    ],
+    "contributions": [
+        {
+            "id": "markdown-syntax-mermaid",
+            "type": "ms.vss-tfs-web.markdown-extension",
+            "targets": ["ms.vss-tfs-web.markdown-extension-syntax"],
+            "properties": {
+                "keyword": "mermaid",
+                "previewSrc": "",
+                "uri": "Mermaid.html"
+            }
+        },
+        {
+            "id": "markdown-syntax-drawio",
+            "type": "ms.vss-tfs-web.markdown-extension",
+            "targets": ["ms.vss-tfs-web.markdown-extension-syntax"],
+            "properties": {
+                "keyword": "drawio",
+                "previewSrc": "",
+                "uri": "drawio.html"
+            }
+        }
+    ]
+}
